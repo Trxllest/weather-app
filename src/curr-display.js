@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable no-use-before-define */
 import { processCurrData, processForecast } from "./get-weather";
 
@@ -16,20 +17,24 @@ const fahrenheit = "\xB0F";
 //   condition: 'Mist',
 //   icon: '//cdn.weatherapi.com/weather/64x64/night/143.png'
 // }
-export default function displayCurr() {
-  searchIcon.addEventListener("click", async () => {
+export function displayCurr() {
+  searchIcon.addEventListener("click", () => {
     if (searchInput.value !== "") {
-      const currWeather = await processCurrData(searchInput.value);
-      console.log(currWeather);
-      currComponent(currWeather);
+      getData(searchInput.value);
     }
   });
+}
+
+export async function getData(location) {
+  const currWeather = await processCurrData(location);
+  console.log(currWeather);
+  currComponent(currWeather);
 }
 
 function currComponent(wObj) {
   const compLeft = document.createElement("div");
   const compRight = document.createElement("div");
-  
+
   const title = document.createElement("h3"); // "City, Region"
   title.classList.add("desc");
   const temp = document.createElement("h1");
@@ -55,6 +60,5 @@ function currComponent(wObj) {
   compRight.appendChild(desc);
 
   currSection.appendChild(compLeft);
-  currSection.appendChild(compRight)
-
+  currSection.appendChild(compRight);
 }

@@ -1,4 +1,5 @@
 import "./style.css";
-import displayCurr from "./curr-display";
+import {getData, displayCurr} from "./curr-display";
 
-displayCurr()
+getData();
+displayCurr();
