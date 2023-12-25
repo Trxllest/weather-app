@@ -1,0 +1,13 @@
+.search-icon {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+input {
+    background-color: aqua;
+}
+
+#location-search {
+    border: 1px solid black ;
+}
