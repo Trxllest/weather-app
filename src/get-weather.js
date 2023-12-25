@@ -18,7 +18,7 @@ async function getLocationForecast(location) {
 }
 
 // Return the Basic current info for location
-async function processCurrData(location) {
+async function processCurrData(location=defaultLocation) {
     // get the data
     const data = await getLocationWeather(location);
 
@@ -42,7 +42,7 @@ async function processCurrData(location) {
 }
 
 // Return forecast for next 3 days
-async function processForecast(location) {
+async function processForecast(location=defaultLocation) {
     const forecastData = await getLocationForecast(location);
     const retval = {};
     let dateNumber = 0;
@@ -61,5 +61,7 @@ async function processForecast(location) {
     return retval;
 }
 
-processCurrData(defaultLocation);
-processForecast(defaultLocation);
+// processCurrData(defaultLocation);
+// processForecast(defaultLocation);
+
+export {processCurrData, processForecast};
