@@ -11,3 +11,8 @@ input {
 #location-search {
     border: 1px solid black ;
 }
+
+.current-weather {
+    display: flex;
+    justify-content: space-around;
+}
