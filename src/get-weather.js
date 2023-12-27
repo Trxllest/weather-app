@@ -44,18 +44,16 @@ async function processCurrData(location=defaultLocation) {
 // Return forecast for next 3 days
 async function processForecast(location=defaultLocation) {
     const forecastData = await getLocationForecast(location);
-    const retval = {};
-    let dateNumber = 0;
+    const retval = [];
 
     forecastData.forecast.forecastday.forEach((d) => {
-        retval[dateNumber] = {
+        retval.push({
             date: d.date,
             temp_c: d.day.avgtemp_c,
             temp_f: d.day.avgtemp_f,
             condition: d.day.condition.text,
             icon: d.day.condition.icon
-        };
-        dateNumber += 1;
+        });
     });
     console.log(retval);
     return retval;
