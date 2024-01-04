@@ -23,10 +23,15 @@ input {
     justify-content: space-evenly;
 }
 
-.hourly-forecast {
+.mySlides {
    
 }
 
 .slideshow-container {
     display: flex;
 }
+
+.hide {
+    display: none;
+}
+

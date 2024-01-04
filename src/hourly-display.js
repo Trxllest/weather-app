@@ -49,10 +49,37 @@
 import { getLocationForecast } from "./get-weather";
 
 const hourlyFC = document.querySelector(".hourly-forecast");
-
-
+let myIndex = 0;
 const defaultLocation = "toronto";
 
+function nextSlide() {
+  console.log(myIndex);
+  if (myIndex >= 24) {
+    myIndex = 0;
+    showSlides(myIndex);
+  } else if (myIndex <= 0) {
+    myIndex = 16;
+    showSlides(myIndex);
+  } else {
+    showSlides(myIndex);
+  }
+}
+
+function showSlides(index) {
+  const parent = document.querySelector(".slideshow-container");
+
+  const allChildNodes = Array.from(parent.children);
+
+  allChildNodes.forEach((child) => {
+    child.classList.add("hide");
+  });
+
+  const visibleNodes = allChildNodes.slice(index, index + 8);
+
+  visibleNodes.forEach((n) => {
+    n.classList.remove("hide");
+  });
+}
 
 function createImgSlider(hArray) {
   // Slider Wrapper
@@ -63,10 +90,31 @@ function createImgSlider(hArray) {
   const slideShowContainer = document.createElement("div");
   slideShowContainer.classList.add("slideshow-container");
 
+  const hourArrows = document.createElement("div");
+  hourArrows.classList.add("hourArrows");
+
+  const leftArrow = document.createElement("div");
+  leftArrow.textContent = "<";
+  hourArrows.appendChild(leftArrow);
+
+  const rightArrow = document.createElement("div");
+  rightArrow.textContent = ">";
+  hourArrows.appendChild(rightArrow);
+
+  leftArrow.onclick = function () {
+    myIndex -= 8;
+    nextSlide();
+  };
+
+  rightArrow.onclick = function () {
+    myIndex += 8;
+    nextSlide();
+  };
+
   hArray.forEach((h) => {
     slideShowContainer.appendChild(hourlyComponent(h));
   });
-
+  hourlyFC.appendChild(hourArrows);
   hourlyFC.appendChild(slideShowContainer);
 }
 
@@ -115,7 +163,7 @@ async function getHrlyData(location = defaultLocation) {
   hourlyFC.textContent = "";
   console.log(hourlyData);
   createImgSlider(hourlyData);
-
+  showSlides(myIndex);
 }
 
 export { getHrlyData };
