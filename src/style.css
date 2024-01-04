@@ -16,3 +16,17 @@ input {
     display: flex;
     justify-content: space-around;
 }
+
+.three-day-forecast {
+    display: flex;
+    max-width: 100%; /* Adjust the maximum width as needed */
+    justify-content: space-evenly;
+}
+
+.hourly-forecast {
+   
+}
+
+.slideshow-container {
+    display: flex;
+}
