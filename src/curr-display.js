@@ -2,8 +2,6 @@
 /* eslint-disable no-use-before-define */
 import { processCurrData, processForecast } from "./get-weather";
 
-const searchIcon = document.querySelector(".search-icon");
-const searchInput = document.querySelector("#search");
 const currSection = document.querySelector(".current-weather");
 
 const celcius = "\xB0C";
@@ -17,17 +15,19 @@ const fahrenheit = "\xB0F";
 //   condition: 'Mist',
 //   icon: '//cdn.weatherapi.com/weather/64x64/night/143.png'
 // }
-export function displayCurr() {
-  searchIcon.addEventListener("click", () => {
-    if (searchInput.value !== "") {
-      getData(searchInput.value);
-    }
-  });
-}
 
-export async function getData(location) {
+// export function displayCurr() {
+//   searchIcon.addEventListener("click", () => {
+//     if (searchInput.value !== "") {
+//       getData(searchInput.value);
+//     }
+//   });
+// }
+
+export async function getCurrData(location) {
   const currWeather = await processCurrData(location);
   console.log(currWeather);
+  currSection.textContent = "";
   currComponent(currWeather);
 }
 
