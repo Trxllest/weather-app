@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /*
 [
     forecastData.forecast.forecastday[0].hour
@@ -44,3 +45,77 @@
   ...
 ]
 */
+
+import { getLocationForecast } from "./get-weather";
+
+const hourlyFC = document.querySelector(".hourly-forecast");
+
+
+const defaultLocation = "toronto";
+
+
+function createImgSlider(hArray) {
+  // Slider Wrapper
+  //   const wrapper = document.createElement("div");
+  //   wrapper.classList.add("slideWrapper");
+
+  // Container
+  const slideShowContainer = document.createElement("div");
+  slideShowContainer.classList.add("slideshow-container");
+
+  hArray.forEach((h) => {
+    slideShowContainer.appendChild(hourlyComponent(h));
+  });
+
+  hourlyFC.appendChild(slideShowContainer);
+}
+
+function hourlyComponent(hObj) {
+  const card = document.createElement("div");
+  card.classList.add("card");
+
+  const time = document.createElement("h3");
+  const icon = document.createElement("div");
+  const temp = document.createElement("h1");
+
+  icon.classList.add("w-icon");
+  time.classList.add("desc");
+  temp.classList.add("temp");
+
+  const dtime = new Date(hObj.time);
+  time.textContent = formatDate(dtime);
+
+  temp.textContent = hObj.temp_c;
+
+  const img = new Image();
+  img.src = hObj.condition.icon;
+  icon.appendChild(img);
+
+  card.appendChild(time);
+  card.appendChild(icon);
+  card.appendChild(temp);
+  card.classList.add("mySlides");
+  return card;
+}
+
+function formatDate(date) {
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  const ampm = hours >= 12 ? "pm" : "am";
+  hours %= 12;
+  hours = hours || 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  const strTime = `${hours}:${minutes} ${ampm}`;
+  return strTime;
+}
+
+async function getHrlyData(location = defaultLocation) {
+  let hourlyData = await getLocationForecast(location);
+  hourlyData = hourlyData.forecast.forecastday[0].hour;
+  hourlyFC.textContent = "";
+  console.log(hourlyData);
+  createImgSlider(hourlyData);
+
+}
+
+export { getHrlyData };
