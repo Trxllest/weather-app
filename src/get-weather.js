@@ -62,4 +62,4 @@ async function processForecast(location=defaultLocation) {
 // processCurrData(defaultLocation);
 // processForecast(defaultLocation);
 
-export {processCurrData, processForecast};
+export {processCurrData, processForecast, getLocationForecast};
