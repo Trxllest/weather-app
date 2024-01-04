@@ -57,7 +57,7 @@ function nextSlide() {
   if (myIndex >= 24) {
     myIndex = 0;
     showSlides(myIndex);
-  } else if (myIndex <= 0) {
+  } else if (myIndex < 0) {
     myIndex = 16;
     showSlides(myIndex);
   } else {
