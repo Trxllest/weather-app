@@ -40,6 +40,21 @@ function forecastComponent(fObj) {
 //     "Friday",
 //     "Saturday",
 //   ];
+
+const nth = (d) => {
+  if (d > 3 && d < 21) return "th";
+  switch (d % 10) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
+  }
+};
+
   fObj.forEach((d) => {
     const card = document.createElement("div");
     card.classList.add("card");
@@ -54,9 +69,9 @@ function forecastComponent(fObj) {
 
     day.textContent = d;
     const dday = new Date(d.date);
-    day.textContent = dday.getDate();
+    day.textContent = `${dday.getDate()}${nth(dday.getDate())}`;
 
-    temp.textContent = d.temp_c
+    temp.textContent = `${d.temp_c}  \xB0C`;
 
     const img = new Image();
     img.src = d.icon;
