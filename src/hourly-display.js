@@ -94,10 +94,12 @@ function createImgSlider(hArray) {
   hourArrows.classList.add("hourArrows");
 
   const leftArrow = document.createElement("div");
+  leftArrow.classList.add("arrow");
   leftArrow.textContent = "<";
   hourArrows.appendChild(leftArrow);
 
   const rightArrow = document.createElement("div");
+  rightArrow.classList.add("arrow");
   rightArrow.textContent = ">";
   hourArrows.appendChild(rightArrow);
 
