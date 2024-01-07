@@ -4,23 +4,52 @@
     display: inline-block;
 }
 
-input {
-    background-color: aqua;
+input#search {
+    border-style: none;
+    background-color: rgb(23, 107, 135);
+    margin: 0 10px 0 10px;
+}
+input#search::placeholder {
+    color: white;
+    opacity: .7;
 }
 
 #location-search {
-    border: 1px solid black ;
+    /* border: 1px solid black ; */
+    background-color: rgb(23, 107, 135);
+    display: flex;
+    align-items: center;
+    height: 10px;
+    padding: 10px;
 }
 
 .current-weather {
     display: flex;
     justify-content: space-around;
+    height: 250px;
+    align-items: center;
 }
+
+.currCard {
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    background-color: rgba(238, 245, 255, 0.894);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgb(0, 0, 0); /* Add a subtle box shadow */
+    margin: 20px; /* Adjust the margin to create the floating effect */
+    border-radius: 45px;
+}
+
 
 .three-day-forecast {
     display: flex;
     max-width: 100%; /* Adjust the maximum width as needed */
     justify-content: space-evenly;
+    
 }
 
 .mySlides {
@@ -35,3 +64,7 @@ input {
     display: none;
 }
 
+.hourArrows {
+    display: flex;
+    justify-content: space-between;
+}
