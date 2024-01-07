@@ -33,7 +33,11 @@ export async function getCurrData(location) {
 
 function currComponent(wObj) {
   const compLeft = document.createElement("div");
+  compLeft.classList.add("curr-Left");
+  compLeft.classList.add("currCard");
   const compRight = document.createElement("div");
+  compRight.classList.add("curr-Right");
+  compRight.classList.add("currCard");
 
   const title = document.createElement("h3"); // "City, Region"
   title.classList.add("desc");
