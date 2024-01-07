@@ -24,7 +24,7 @@ export default async function setGif(location) {
 
   const currSxn = document.querySelector(".current-weather");
   currSxn.style.background = `url(${gifLink}) center/cover no-repeat`;
-  currSxn.style.height = data.data[0].images.original.height;
+  // currSxn.style.height = data.data[0].images.original.height;
 }
 
 setGif("Toronto");
