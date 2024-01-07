@@ -67,7 +67,6 @@ function nextSlide() {
 
 function showSlides(index) {
   const parent = document.querySelector(".slideshow-container");
-
   const allChildNodes = Array.from(parent.children);
 
   allChildNodes.forEach((child) => {
