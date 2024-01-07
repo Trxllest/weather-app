@@ -4,29 +4,48 @@
     display: inline-block;
 }
 
+
+
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+#content  {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 5em 3fr;
+
+}
+
+
 input#search {
     border-style: none;
-    background-color: rgb(23, 107, 135);
+    background-color: rgb(180, 212, 255);
     margin: 0 10px 0 10px;
 }
 input#search::placeholder {
-    color: white;
+    color: rgb(23, 107, 135);
     opacity: .7;
 }
 
 #location-search {
     /* border: 1px solid black ; */
-    background-color: rgb(23, 107, 135);
+    background-color: rgb(180, 212, 255);
     display: flex;
     align-items: center;
-    height: 10px;
+    /* height: 10px; */
     padding: 10px;
+
+    grid-row: 1;
 }
 
 .current-weather {
+    grid-row: 2;
+
     display: flex;
     justify-content: space-around;
-    height: 250px;
+    /* height: 250px; */
     align-items: center;
 }
 
@@ -49,15 +68,31 @@ input#search::placeholder {
     display: flex;
     max-width: 100%; /* Adjust the maximum width as needed */
     justify-content: space-evenly;
-    
+    background-color: rgb(180, 212, 255);
+    padding: 10px;;
 }
 
-.mySlides {
-   
+.mySlides, .card {
+    background-color: rgba(24, 110, 138, 0.993);
+    height: 180px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.421); /* Add a subtle box shadow */
+    padding: 10px;
+    border-radius: 25px;
+}
+.card {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(238, 245, 255);
 }
 
 .slideshow-container {
     display: flex;
+    justify-content: space-around;
+    background-color: rgb(23, 107, 135);
+    color: rgba(238, 245, 255);
+    padding: 20px;
 }
 
 .hide {
@@ -67,4 +102,24 @@ input#search::placeholder {
 .hourArrows {
     display: flex;
     justify-content: space-between;
+    background-color: rgb(180, 212, 255);
+    align-items: center;
+    padding: 10px;
+}
+
+.arrow {
+    font-size: 15px;
+    height: 25px;
+    width: 25px;
+    padding: 10px;
+    border-radius: 100%;
+    background-color: rgb(134, 182, 246);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.421); /* Add a subtle box shadow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow:hover {
+    box-shadow: 0 0px 0px rgba(0, 0, 0); /* Add a subtle box shadow */    
 }
