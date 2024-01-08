@@ -28,6 +28,7 @@ async function processCurrData(location=defaultLocation) {
     const tempF = data.current.temp_f;
     const conditionDesc = data.current.condition.text;
     const conditionIcon = data.current.condition.icon;
+    const locationDateTime = data.location.localtime;
 
     const retval =  {
         city: locationName,
@@ -35,7 +36,8 @@ async function processCurrData(location=defaultLocation) {
         temp_c: tempC,
         temp_f: tempF,
         condition: conditionDesc,
-        icon: conditionIcon
+        icon: conditionIcon,
+        time: locationDateTime
     }
     console.log(retval);
     return retval;

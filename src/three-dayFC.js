@@ -26,34 +26,33 @@
 
 import { processForecast } from "./get-weather";
 
-
 const dailyFC = document.querySelector(".three-day-forecast");
 const defaultLocation = "toronto";
 
 function forecastComponent(fObj) {
-//   const weekday = [
-//     "Sunday",
-//     "Monday",
-//     "Tuesday",
-//     "Wednesday",
-//     "Thursday",
-//     "Friday",
-//     "Saturday",
-//   ];
+  //   const weekday = [
+  //     "Sunday",
+  //     "Monday",
+  //     "Tuesday",
+  //     "Wednesday",
+  //     "Thursday",
+  //     "Friday",
+  //     "Saturday",
+  //   ];
 
-const nth = (d) => {
-  if (d > 3 && d < 21) return "th";
-  switch (d % 10) {
-    case 1:
-      return "st";
-    case 2:
-      return "nd";
-    case 3:
-      return "rd";
-    default:
-      return "th";
-  }
-};
+  const nth = (d) => {
+    if (d > 3 && d < 21) return "th";
+    switch (d % 10) {
+      case 1:
+        return "st";
+      case 2:
+        return "nd";
+      case 3:
+        return "rd";
+      default:
+        return "th";
+    }
+  };
 
   fObj.forEach((d) => {
     const card = document.createElement("div");
@@ -85,11 +84,11 @@ const nth = (d) => {
   });
 }
 
-async function getFCData(location=defaultLocation) {
+async function getFCData(location = defaultLocation) {
   const fcWeather = await processForecast(location);
   console.log(fcWeather);
   dailyFC.textContent = "";
   forecastComponent(fcWeather);
 }
 
-export {getFCData};
+export { getFCData };

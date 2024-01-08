@@ -39,14 +39,25 @@ function currComponent(wObj) {
   compRight.classList.add("curr-Right");
   compRight.classList.add("currCard");
 
+  const dayTime = document.createElement("h3");
+  dayTime.classList.add("desc");
+
   const title = document.createElement("h3"); // "City, Region"
   title.classList.add("desc");
+
   const temp = document.createElement("h1");
   temp.classList.add("temp");
 
   title.textContent = `${wObj.city}, ${wObj.region}`;
   temp.textContent = `${wObj.temp_c} \xB0C`;
+  const day = new Date(wObj.time).toLocaleDateString("en-us", {
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+  });
+  dayTime.textContent = day;
 
+  compLeft.appendChild(dayTime);
   compLeft.appendChild(title);
   compLeft.appendChild(temp);
 
