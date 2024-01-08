@@ -1,6 +1,6 @@
 // Globals 
 const API_KEY = "17f17e6dd7b44606b63225044232312";
-const BASE_URL = "http://api.weatherapi.com/v1";
+const BASE_URL = "https://api.weatherapi.com/v1";
 const defaultLocation = "toronto"
 
 // Return the current weather information for location

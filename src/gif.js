@@ -2,7 +2,7 @@
 import { processCurrData } from "./get-weather";
 
 const API_KEY = "DVrRXnEwn0X9AY4F6pEbLXuFKWxtVHHj";
-const BASE_URL = "http://api.giphy.com/v1/gifs/search";
+const BASE_URL = "https://api.giphy.com/v1/gifs/search";
 
 // Return the gif info based on weather
 async function getGifData(weather) {
